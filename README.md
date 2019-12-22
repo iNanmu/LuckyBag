@@ -1,0 +1,2 @@
+# LuckyBag
+LuckyBag Plugin
