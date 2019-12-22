@@ -36,6 +36,7 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable(){
+        
     }
 
     //加载配置
