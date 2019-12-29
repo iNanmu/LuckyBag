@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.serverct.ersha.bisai.luckybag.runs.DelayRun;
 
 import java.util.List;
 import java.util.Random;
@@ -11,13 +12,16 @@ import java.util.Random;
 
 /**
  * @author ersha
- * @date 2019/12/1
+ * @date 2019/12/29
  */
 public class Reward {
 
     private Player player;
     private List<String> rewardList;
 
+    public Reward(Player player){
+        this.player = player;
+    }
     public Reward(Player player, List<String> rewardList){
         this.player = player;
         this.rewardList = rewardList;
@@ -54,6 +58,11 @@ public class Reward {
             case "[ITEMS]":
                 runItems(text);
                 break;
+            case "[DELAY]":
+                String[] args = text.split(",");
+                String a = text.substring(args[0].length()+1).trim();
+                new DelayRun().delayRun(player, a, Integer.parseInt(args[0]));
+                break;
             default:
                 break;
         }
@@ -62,7 +71,7 @@ public class Reward {
     /**
      * 让玩家以OP执行指令
      */
-    private void runCommand(String commands){
+    public void runCommand(String commands){
         String[] args1 = commands.split(",");
         for (String arg : args1) {
             String values = "123456asd";
