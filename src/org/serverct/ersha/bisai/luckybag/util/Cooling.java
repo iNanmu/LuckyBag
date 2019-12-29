@@ -32,7 +32,7 @@ public class Cooling {
 
     /**福袋冷却**/
     public void loadBagCooling(){
-        Map.BagCooling.put(this.player.getName()+":"+this.bag, "冷却");
+        Map.BagCooling.put(this.player.getName()+":"+this.bag, "0");
         new CoolingRun().coolingRun(this.player.getName(), this.bag, this.time);
     }
 }
