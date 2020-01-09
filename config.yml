@@ -1,0 +1,72 @@
+Setting:
+  MySQL:
+    enable: false
+    sql: 'jdbc:mysql://localhost:3306/lb'
+    root: 'root'
+    password: 'asd123123'
+
+#消息
+Message:
+  playerInventory: "&f[&c&l!&f] &c没有足够的背包空格,物品已掉落至地上"
+  bagCooling: "&f[&c&l!&f] &f福袋正在冷却,暂无法使用"
+  bagCoolingEnd: "&f[&a&l!&f] &f福袋 [&6%bag%&f] 冷却完毕"
+
+
+#SOUND音效列表: https://bukkit.windit.net/javadoc/org/bukkit/Sound.html
+Items:
+  List:
+    "新春福袋":
+      Id: 399
+      Ids: 0
+      cooling: 5
+      Name: "&6&l新春福袋"
+      Lore:
+        - "&f这是一个&c新春福袋&f可以开出"
+        - "&f稀有道具奖品!"
+        - "&f"
+        - "&a右键开启福袋~"
+      #条件判断支持 PlaceholderAPI 变量
+      Condition:
+        - "%luckybag_value% < 50#&f[&c&l!&f] &f你的福气值必须小于 50 点才可以打开这个福袋!"
+        - "%player_level% >= 50#&f[&c&l!&f] &f等级需要达到 &c50 &f级以上才可开启这个福袋！"
+      #奖励设置
+      #奖励关键词详细介绍: https://www.mcbbs.net/thread-931767-1-1.html
+      Reward:
+        - "[MESSAGE]#&f[&6!&f] &6新春福袋 &f已打开，快看看有什么福袋里有什么东西吧!"
+        - "[TITLE]#&6新春福袋,&f已打开,3,5,3"
+        - "[COMMAND]#eco give %player% <r:1000-10000>,say 玩家 %player% 开启了福袋"
+        - "[COMMAND]#exp give %player% <r:100-1000>"
+        - "[SOUND]#ENTITY_PLAYER_LEVELUP,1,2"
+        - "[CHANCE]#50,[COMMAND]$eco give %player% 1000,[MESSAGE]$&f[&6!&f] 额外获得 &c1000 &f金币!"
+        - "[VALUE]#ADD,<r:1-5>,&f[&6福气&f] 成功增加了 %value% 点福气值，你目前的福气值为 %all%"
+    "端午福袋":
+      Id: 399
+      Ids: 0
+      cooling: 5
+      Name: "&2&l端午福袋"
+      Lore:
+        - "&f这是一个&2端午福袋&f可以开出稀有道具奖品!"
+        - "&f"
+        - "&a玩家等级达到 &c100 &a级以上即可开启!"
+      Condition:
+        - "%luckybag_value% < 10#&f[&c&l!&f] &f你的福气值必须达到 50 点才可以打开这个福袋!"
+        - "%player_level% >= 100#&f[&c&l!&f] &f等级需要达到 &c100 &f级以上才可开启这个福袋！"
+      Reward:
+        - "[MESSAGE]#&f[&6!&f] &2端午福袋 &f已打开，快看看有什么福袋里有什么东西吧!"
+        - "[COMMAND]#eco give %player% <r:1000-10000>,say 玩家 %player% 开启了福袋"
+        - "[COMMAND]#exp give %player% <r:100-1000>"
+        - "[ITEMS]#端午武器碎片,<r:1-5>,&f[&6!&f] 获得 &c%amount% &f个端午武器碎片!"
+        - "[CHANCE]#50,[COMMAND]$eco give %player% 500,[MESSAGE]$&f[&6!&f] 额外获得 &c500 &f金币!"
+        - "[VALUE]#ADD,<r:1-5>,&f[&6福气&f] 成功增加了 %value% 点福气值，你目前的福气值为 %all%"
+    "万圣福袋":
+      Id: 399
+      Ids: 0
+      cooling: 5
+      Name: "&6&l万圣福袋"
+      Lore:
+        - "&f这是一个&6万圣福袋&f可以开出稀有道具奖品!"
+      Condition: []
+      Reward:
+        - "[MESSAGE]#&f[&6!&f] &6万圣福袋 &f已打开，快看看有什么福袋里有什么东西吧!"
+        - "[DELAY]#5,eco give %player% <r:100-500>,say 玩家 %player% 开启了福袋"
+        - "[VALUE]#TAKE,<r:1-5>,&f[&6福气&f] 你开启了这个福袋因此失去了 %value% 点福气值，你目前的福气值为 %all%"
