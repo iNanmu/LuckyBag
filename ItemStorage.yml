@@ -1,0 +1,29 @@
+#附魔ID列表: https://bukkit.windit.net/javadoc/org/bukkit/enchantments/Enchantment.html
+#ItemFlag列表: https://bukkit.windit.net/javadoc/org/bukkit/inventory/ItemFlag.html
+ItemStorage:
+  "端午武器碎片":
+    Id: 399
+    Ids: 0
+    Name: "&2端午武器碎片"
+    Lore:
+      - "&f用于兑换端午节武器"
+      - "&f集齐 &c15 &f个即可兑换"
+    ItemFlag:
+      - "HIDE_ENCHANTS"
+      - "HIDE_ATTRIBUTES"
+    #格式: 附魔ID,等级
+    Enchant: []
+  "端午武器":
+    Id: 276
+    Ids: 0
+    Name: "&6端午武器"
+    Lore:
+      - "&f攻击力: &c100-500"
+      - "&f暴击几率: &c10"
+      - "&f"
+      - "&f附魔 &3锋利 II"
+    ItemFlag: []
+    #格式: 附魔ID,等级
+    Enchant:
+      - "DAMAGE_ALL,2"
+      - "WATER_WORKER,5"
