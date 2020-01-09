@@ -1,5 +1,7 @@
 package org.serverct.ersha.bisai.luckybag;
 
+import org.bukkit.command.CommandSender;
+
 import java.util.HashMap;
 
 /**
@@ -10,4 +12,7 @@ public class Map {
 
     /**福袋冷却**/
     public static HashMap<String, String> BagCooling = new HashMap<>();
+
+    /**福袋组**/
+    public static HashMap<CommandSender, String> AttributeGroup = new HashMap<>();
 }
