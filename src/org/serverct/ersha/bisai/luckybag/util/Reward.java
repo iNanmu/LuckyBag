@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.serverct.ersha.bisai.luckybag.Main;
+import org.serverct.ersha.bisai.luckybag.database.ChangedType;
 import org.serverct.ersha.bisai.luckybag.runs.DelayRun;
 
 import java.util.List;
@@ -57,6 +59,9 @@ public class Reward {
                 break;
             case "[ITEMS]":
                 runItems(text);
+                break;
+            case "[VALUE]":
+                runChangedValue(text);
                 break;
             case "[DELAY]":
                 String[] args = text.split(",");
@@ -138,5 +143,17 @@ public class Reward {
             return;
         }
         player.getWorld().dropItem(player.getLocation(), itemStack);
+    }
+
+    /**
+     * 福气值变动
+     */
+    private void runChangedValue(String string){
+        String[] args = string.split(",");
+        ChangedType changedType = ChangedType.valueOf(args[0]);
+        int amount = Util.replaceInteger(args[1]);
+        String values = String.valueOf(Main.getDatabase().getPlayerValue(player.getName()));
+        Main.getDatabase().changedPlayerData(player.getName(), changedType, amount);
+        player.sendMessage(args[2].replace("%all%", values).replace("%value%", String.valueOf(amount)));
     }
 }
