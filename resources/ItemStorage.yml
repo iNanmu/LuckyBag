@@ -26,4 +26,4 @@ ItemStorage:
     #格式: 附魔ID,等级
     Enchant:
       - "DAMAGE_ALL,2"
-      - "WATER_WORKER,5"
+      - "WATER_WORKER,3"
