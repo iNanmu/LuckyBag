@@ -68,15 +68,11 @@ public class InteractionListener implements Listener{
     /**
      * 扣除物品
      */
-    private void takeItems(ItemStack itemStack){
+    private void takeItems(Player player, ItemStack itemStack){
         if (itemStack.getAmount() > 1){
             itemStack.setAmount(itemStack.getAmount()-1);
         }else{
-            if (Bukkit.getServer().getVersion().contains("1.7")){
-                itemStack.setType(Material.AIR);
-                return;
-            }
-            itemStack.setAmount(0);
+            player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.AIR));
         }
     }
 }
