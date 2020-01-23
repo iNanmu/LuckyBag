@@ -18,12 +18,14 @@ public class AttributePlus {
 
     private static File file = new File(Main.getInstance().getDataFolder() + "/attribute.yml");
     public static YamlConfiguration yaml;
+    private static Boolean hook = false;
 
     public AttributePlus() {
         if (!file.exists()) {
             Main.getInstance().saveResource("attribute.yml", true);
         }
         yaml = YamlConfiguration.loadConfiguration(file);
+        hook = true;
     }
 
     /**
@@ -31,7 +33,7 @@ public class AttributePlus {
      * @param name 玩家名
      */
     public static void loadAttribute(String name) {
-        if (yaml.getBoolean("Setting.enable")) {
+        if (hook && yaml.getBoolean("Setting.enable")) {
             int dataValue = Main.getDatabase().getPlayerValue(name);
             List<String> list = yaml.getStringList("Setting.list");
             for (String str : list) {
