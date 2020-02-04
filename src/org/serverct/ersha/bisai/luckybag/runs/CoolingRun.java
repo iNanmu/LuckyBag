@@ -7,6 +7,7 @@ import org.serverct.ersha.bisai.luckybag.Main;
 import org.serverct.ersha.bisai.luckybag.Map;
 
 /**
+ * 冷却机制
  * @author ersha
  * @date 2019/12/29
  */
