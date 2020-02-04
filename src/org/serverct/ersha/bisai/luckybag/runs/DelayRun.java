@@ -6,6 +6,7 @@ import org.serverct.ersha.bisai.luckybag.Main;
 import org.serverct.ersha.bisai.luckybag.util.Reward;
 
 /**
+ * 延迟执行指令
  * @author ersha
  * @date 2019/12/29
  */
