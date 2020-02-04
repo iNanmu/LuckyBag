@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.List;
 
 /**
+ * AttributePlus 属性插件版本要求 1.7.0 以上版本
  * @author ersha
  * @date 2020/1/9
  */
