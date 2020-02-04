@@ -5,7 +5,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.serverct.ersha.bisai.luckybag.Main;
-import org.serverct.ersha.bisai.luckybag.database.ChangedType;
+import org.serverct.ersha.bisai.luckybag.enumerate.ChangedType;
 import org.serverct.ersha.bisai.luckybag.runs.DelayRun;
 
 import java.util.List;
@@ -14,7 +14,8 @@ import java.util.Random;
 
 /**
  * @author ersha
- * @date 2019/12/29
+ * @date 2019/12/29 create
+ * @date 2020/02/04 update
  */
 public class Reward {
 
@@ -119,10 +120,10 @@ public class Reward {
      * 概率触发奖励
      */
     private void runChance(String object){
-        String[] args = object.split(",");
-        if (Integer.parseInt(args[0]) >= new Random().nextInt(100)){
-            for (int i = 1;i<args.length;i++) {
-                String[] args2 = args[i].split(",");
+        String[] args = object.split(";");
+        if (Integer.parseInt(args[0]) >= new Random().nextInt(100)) {
+            for (int i = 1; i < args.length; i++) {
+                String[] args2 = args[i].split(";");
                 String[] args3 = args2[0].replace("$", "#").split("#");
                 runReward(args3[0], args3[1].replace("&", "§"));
             }
