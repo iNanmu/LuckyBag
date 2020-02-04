@@ -13,6 +13,7 @@ import java.util.Random;
 
 
 /**
+ * 奖励类,所有奖励通过此类执行
  * @author ersha
  * @date 2019/12/29 create
  * @date 2020/02/04 update
